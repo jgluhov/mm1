@@ -2,15 +2,16 @@ import React from 'react'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import {Link} from "react-router-dom";
 
-const LoginForm = () => (
+const SignUpPage = () => (
   <Segment color={'grey'}>
     <Grid textAlign='center' style={{ height: '100vh' }}  verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' textAlign='center'>
-          Sign-in to your account
+          Sign-up to your account
         </Header>
         <Form size='large'>
           <Segment piled>
+            <Form.Input fluid icon='user' iconPosition='left' placeholder='Name' />
             <Form.Input fluid icon='mail' iconPosition='left' placeholder='E-mail address' />
             <Form.Input
               fluid
@@ -21,10 +22,10 @@ const LoginForm = () => (
             />
 
             <Button fluid color={'blue'} size='large' style={{ marginBottom: '15px' }}>
-              Sign-in
+              Sign-up
             </Button>
 
-            New to us? <Link to='/sign-up'>Sign up</Link>
+            Already have an account? <Link to='/sign-in'>Sign-in</Link>
           </Segment>
         </Form>
       </Grid.Column>
@@ -32,4 +33,4 @@ const LoginForm = () => (
   </Segment>
 )
 
-export default LoginForm
+export default SignUpPage
