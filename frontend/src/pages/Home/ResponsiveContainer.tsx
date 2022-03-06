@@ -7,7 +7,8 @@ import {
   Visibility,
   Icon, Sidebar
 } from 'semantic-ui-react'
-import React, {useState} from "react";
+import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -81,9 +82,11 @@ const MobileContainer = ({ children }: ContainerProps) => {
                   <Icon name='sidebar' />
                 </Menu.Item>
                 <Menu.Item position='right'>
-                  <Button as='a' inverted>
-                    Log in
-                  </Button>
+                  <Link to="/sign-in">
+                    <Button as='span' inverted>
+                      Log in
+                    </Button>
+                  </Link>
                   <Button as='a' inverted style={{ marginLeft: '0.5em' }}>
                     Sign Up
                   </Button>
@@ -129,10 +132,12 @@ const DesktopContainer = ({ children }: ContainerProps) => {
           >
             <Container>
               <Menu.Item position='right'>
-                <Button as='a' inverted={!fixed}>
-                  Log in
-                </Button>
-                <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
+                <Link to="/sign-in">
+                  <Button as="span" inverted={!fixed}>
+                    Log in
+                  </Button>
+                </Link>
+                <Button inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
                   Sign Up
                 </Button>
               </Menu.Item>
