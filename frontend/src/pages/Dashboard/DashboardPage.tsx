@@ -1,9 +1,9 @@
-import {Button, Container, Menu, Segment, Visibility} from 'semantic-ui-react';
+import {Button, Container, Image, Menu, Segment, Visibility} from 'semantic-ui-react';
 import React, {useCallback, useState} from 'react';
 import { Media } from '@providers/MediaProvider';
 import {useAuth} from '@store/auth/store';
 import {signOut} from '@store/auth/actions';
-import {Navigate} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 
 const DashboardPage = () => {
   const [fixed, setFixed] = useState(false);
@@ -41,8 +41,12 @@ const DashboardPage = () => {
             size='large'
           >
             <Container>
+              <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+                <Image src='/logo.png' style={{ height: 50}} />
+              </Link>
+
               <Menu.Item position='right'>
-                <Button as="span" inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }} onClick={handleSignOut}>
+                <Button as="button" inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }} onClick={handleSignOut}>
                   Sign Out
                 </Button>
               </Menu.Item>

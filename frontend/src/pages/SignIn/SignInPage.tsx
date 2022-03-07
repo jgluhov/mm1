@@ -14,7 +14,7 @@ const SignInPage = () => {
 
   if (state.isSignedIn) {
     const from = (location.state as Record<string, string>)?.path;
-    return <Navigate to={from || '/dashboard'} />
+    return <Navigate to={from || '/dashboard'} state={{ path: '/' }} />
   }
 
   return (
@@ -26,13 +26,14 @@ const SignInPage = () => {
           </Header>
           <Form size='large'>
             <Segment piled>
-              <Form.Input fluid icon='mail' iconPosition='left' placeholder='E-mail address' />
+              <Form.Input fluid icon='mail' iconPosition='left' placeholder='E-mail address' autoComplete='username' />
               <Form.Input
                 fluid
                 icon='lock'
                 iconPosition='left'
                 placeholder='Password'
                 type='password'
+                autoComplete='current-password'
               />
 
               <Button fluid color={'blue'} size='large' style={{ marginBottom: '15px' }} onClick={handleSubmit}>

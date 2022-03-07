@@ -6,11 +6,14 @@ import {
   Segment,
   Visibility,
   Icon,
-  Sidebar
+  Sidebar,
+  Image
 } from 'semantic-ui-react'
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useCallback, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { Media, MediaContextProvider } from '@providers/MediaProvider';
+import {useAuth} from '@store/auth/store';
+import {signOut} from '@store/auth/actions';
 
 interface ContainerProps {
   children: React.ReactNode
@@ -100,11 +103,15 @@ const MobileContainer = ({ children }: ContainerProps) => {
 }
 
 const DesktopContainer = ({ children }: ContainerProps) => {
-
+  const { state, dispatch } = useAuth();
   const [fixed, setFixed] = useState(false);
 
   const hideFixedMenu = () => setFixed(false);
   const showFixedMenu = () => setFixed(true);
+
+  const handleSignOut = useCallback(() => {
+    dispatch(signOut());
+  }, [dispatch]);
 
   return (
     <Media greaterThan='mobile'>
@@ -127,22 +134,29 @@ const DesktopContainer = ({ children }: ContainerProps) => {
             size='large'
           >
             <Container>
+              <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+                <Image src='/logo.png' style={{ height: 50}} />
+              </Link>
               <Menu.Item position='right'>
-                <Link to="/sign-in">
-                  <Button as="span" inverted={!fixed}>
-                    Log in
+                { !state.isSignedIn && (
+                  <>
+                    <Link to="/sign-in">
+                      <Button as="span" inverted={!fixed} style={{ fontSize: '16px' }}>
+                        Sign in
+                      </Button>
+                    </Link>
+                    <Link to="/sign-up">
+                      <Button as="span" inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em', fontSize: '16px' }}>
+                        Sign Up
+                      </Button>
+                    </Link>
+                  </>
+                )}
+                { state.isSignedIn && (
+                  <Button as="button" inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }} onClick={handleSignOut}>
+                    Sign Out
                   </Button>
-                </Link>
-                <Link to="/sign-up">
-                  <Button as="span" inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
-                </Link>
-                <Link to="/dashboard">
-                  <Button as="span" inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
-                    Dashboard
-                  </Button>
-                </Link>
+                )}
               </Menu.Item>
             </Container>
           </Menu>
