@@ -7,17 +7,13 @@ import {
   Visibility,
   Icon,
   Sidebar,
-  Image
+  Image, ContainerProps
 } from 'semantic-ui-react'
 import React, {Fragment, useCallback, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { Media, MediaContextProvider } from '@providers/MediaProvider';
 import {useAuth} from '@store/auth/store';
 import {signOut} from '@store/auth/actions';
-
-interface ContainerProps {
-  children: React.ReactNode
-}
 
 const HomepageHeading = ({ mobile = false }) => (
   <Container text>
@@ -181,7 +177,9 @@ export function ResponsiveContainer({ children }: ContainerProps) {
 export default function HomePage() {
   return (
     <ResponsiveContainer>
-      <Fragment />
+      <div>
+        Home page
+      </div>
     </ResponsiveContainer>
   )
 }
