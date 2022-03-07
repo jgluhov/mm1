@@ -1,22 +1,16 @@
-import { createMedia } from '@artsy/fresnel'
 import {
   Button,
-  Container, Header,
+  Container,
+  Header,
   Menu,
   Segment,
   Visibility,
-  Icon, Sidebar
+  Icon,
+  Sidebar
 } from 'semantic-ui-react'
 import React, {Fragment, useState} from 'react';
 import { Link } from 'react-router-dom';
-
-const { MediaContextProvider, Media } = createMedia({
-  breakpoints: {
-    mobile: 0,
-    tablet: 768,
-    desktop: 1024,
-  },
-})
+import { Media, MediaContextProvider } from '@providers/MediaProvider';
 
 interface ContainerProps {
   children: React.ReactNode
@@ -142,6 +136,11 @@ const DesktopContainer = ({ children }: ContainerProps) => {
                 <Link to="/sign-up">
                   <Button as="span" inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
                     Sign Up
+                  </Button>
+                </Link>
+                <Link to="/dashboard">
+                  <Button as="span" inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
+                    Dashboard
                   </Button>
                 </Link>
               </Menu.Item>

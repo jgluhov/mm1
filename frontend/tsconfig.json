@@ -20,7 +20,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@components/*" : ["./src/components/*"]
+      "@components/*" : ["./src/components/*"],
+      "@providers/*" : ["./src/providers/*"],
+      "@store/*" : ["./src/store/*"],
+      "@hooks/*" : ["./src/hooks/*"]
     }
   },
   "include": [
