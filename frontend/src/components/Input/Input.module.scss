@@ -4,7 +4,14 @@
   color: #a3a3a3;
   font: inherit;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
-  border: 0;
   outline: 0;
   padding: 12px 18px;
+  border: 1px solid lightgrey;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
