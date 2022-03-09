@@ -1,0 +1,29 @@
+.page {
+  height: 100vh;
+  background: linear-gradient(to bottom, lightslategray, #93B4AC);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 60px;
+  background-color: #f3fffc;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.formControl {
+  margin-bottom: 20px;
+}
+
+.title {
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+

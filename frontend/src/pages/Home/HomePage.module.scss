@@ -1,0 +1,24 @@
+.pageHeader {
+  height: 450px;
+  width: 100%;
+  background: linear-gradient(to bottom, lightslategray, #93B4AC);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: transparent;
+}
+
+.jumbotron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.title {
+  margin: 0;
+  color: white;
+}
+
